@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>This is the App Component</h1>
+        <h1>This is the Shai Component</h1>
         <TextInput/>
       </div>
     )
