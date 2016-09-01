@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-class UserInfo extends Component {
-
+export default class Info extends Component {
   handleNewId() {
     this.props.actions.createNewUserId()
   }
@@ -16,15 +15,14 @@ class UserInfo extends Component {
 
   render() {
     return (
-      <li>
+      <div>
         <div>username: {this.props.user.username}</div>
         <div>id: {this.props.user.id}</div>
+
         <button onClick={this.handleNewId.bind(this)}>Update with random ID</button>
         <button onClick={this.handleNewIdIfOdd.bind(this)}>Update if odd</button>
         <button onClick={this.handleNewIdAsync.bind(this)}>Update Async</button>
-      </li>
+      </div>
     )
   }
 }
-
-export default UserInfo
