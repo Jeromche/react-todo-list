@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-class TodoInput extends Component {
-
+export default class Input extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
@@ -35,7 +34,4 @@ class TodoInput extends Component {
       </div>
     )
   }
-
 }
-
-export default TodoInput

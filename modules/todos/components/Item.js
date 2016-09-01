@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-class TodoItem extends Component {
-
+export default class Item extends Component {
   handleComplete() {
     this.props.actions.completeTodo(this.props.todo.id)
   }
@@ -19,7 +18,4 @@ class TodoItem extends Component {
       </li>
     )
   }
-
 }
-
-export default TodoItem

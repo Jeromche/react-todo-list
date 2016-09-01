@@ -25,7 +25,6 @@ class UserInfo extends Component {
       </li>
     )
   }
-
 }
 
 export default UserInfo
