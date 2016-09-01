@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Input from './components/Input'
 import List from './components/List'
-import * as actions from '../../redux/modules/todos'
+import * as actions from '../../redux/reducers/todos'
 
 class TodosContainer extends Component {
   render() {
@@ -20,7 +20,9 @@ class TodosContainer extends Component {
  * @todo Only pass on the todos.
  */
 function mapStateToProps(state) {
-  return state
+  return {
+    todos: state.todos
+  }
 }
 
 function mapDispatchToProps(dispatch) {

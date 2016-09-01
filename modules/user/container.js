@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Info from './components/Info'
-import * as actions from '../../redux/modules/user'
+import * as actions from '../../redux/reducers/user'
 
 class UserContainer extends Component {
   render() {
@@ -13,7 +13,9 @@ class UserContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return state
+  return {
+    user: state.user
+  }
 }
 
 function mapDispatchToProps(dispatch) {

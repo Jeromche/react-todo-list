@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
-import todosModule from './modules/todos'
-import userModule from './modules/user'
+import todosModule from './reducers/todos'
+import userModule from './reducers/user'
 
 let finalCreateStore = compose(
   applyMiddleware(thunk, logger())
