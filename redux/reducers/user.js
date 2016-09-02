@@ -5,20 +5,16 @@ export const createNewUserId = () => ({
   id: Math.round(Math.random() * 100)
 })
 
-export const createNewUserIdIfOdd = () => {
-  return (dispatch, getState) => {
-    const { user } = getState()
-    if (user.id % 2 === 0) return
-    dispatch(createNewUserId())
-  }
+export const createNewUserIdIfOdd = () => (dispatch, getState) => {
+  const { user } = getState()
+  if (user.id % 2 === 0) return
+  dispatch(createNewUserId())
 }
 
-export const createNewUserIdAsync = () => {
-  return (dispatch) => {
-    setTimeout(() => {
-      dispatch(createNewUserId())
-    }, 2500)
-  }
+export const createNewUserIdAsync = () =>  (dispatch) => {
+  setTimeout(() => {
+    dispatch(createNewUserId())
+  }, 2500)
 }
 
 export default function reducer(user = {}, action) {

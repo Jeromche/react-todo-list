@@ -17,30 +17,41 @@ export const deleteTodo = (id) => ({
   id
 })
 
-export default function reducer(todos = [], action) {
+const todo = (state = {}, action) => {
   switch (action.type) {
     case ADD_TODO:
-      let todo = {
+      return {
         text: action.text,
         completed: false,
-        id: todos.length + 1
+        id: state.length + 1
       }
-      return [todo, ...todos]
 
     case COMPLETE_TODO:
-      return todos.map((todo) => {
-        return todo.id !== action.id ? todo : {
-          ...todo,
-          completed: !todo.completed
-        }
-      })
+      if (state.id !== action.id) {
+        return state;
+      }
 
-    case DELETE_TODO:
-      return todos.filter((todo) => {
-        return todo.id !== action.id
-      })
+      return {
+        ...state,
+        completed: !state.completed
+      }
 
     default:
-      return todos;
+  }
+}
+
+export default function reducer(state = [], action) {
+  switch (action.type) {
+    case ADD_TODO:
+      return [todo(undefined, action), ...state]
+
+    case COMPLETE_TODO:
+      return state.map(t => todo(t, action))
+
+    case DELETE_TODO:
+      return state.filter(todo => todo.id !== action.id)
+
+    default:
+      return state;
   }
 }

@@ -3,15 +3,11 @@ import React, { Component } from 'react'
 export default class Input extends Component {
   constructor(props, context) {
     super(props, context)
-    this.state = {
-      inputText: ''
-    }
+    this.state = { inputText: '' }
   }
 
   handleChange(event) {
-    this.setState({
-      inputText: event.target.value
-    })
+    this.setState({ inputText: event.target.value })
   }
 
   handleSubmit(event) {
