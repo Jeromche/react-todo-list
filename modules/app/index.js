@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Todos from '../modules/todos/container'
-import User from '../modules/user/container'
+import Todos from '../todos'
+import User from '../user'
 
 export default class App extends Component {
   render() {
