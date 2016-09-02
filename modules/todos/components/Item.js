@@ -1,21 +1,11 @@
 import React, { Component } from 'react'
 
-export default class Item extends Component {
-  handleComplete() {
-    this.props.actions.completeTodo(this.props.todo.id)
-  }
+const Item = ({ text, onComplete, onDelete }) => (
+  <li>
+    <div>{text}</div>
+    <button onClick={onComplete}>Mark as completed</button>
+    <button onClick={onDelete}>Delete todo</button>
+  </li>
+)
 
-  handleDelete() {
-    this.props.actions.deleteTodo(this.props.todo.id)
-  }
-
-  render() {
-    return (
-      <li>
-        <div>{this.props.todo.text}</div>
-        <button onClick={this.handleComplete.bind(this)}>Mark as completed</button>
-        <button onClick={this.handleDelete.bind(this)}>Delete todo</button>
-      </li>
-    )
-  }
-}
+export default Item

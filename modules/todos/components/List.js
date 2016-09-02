@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import Item from './Item'
 
-export default class TodoList extends Component {
-  render() {
-    return (
-      <ul>
-        {this.props.todos.map((todo) => {
-          return <Item key={todo.id} todo={todo} actions={this.props.actions}/>
-        })}
-      </ul>
-    )
-  }
-}
+const TodoList = ({ todos, onTodoComplete, onTodoDelete }) => (
+  <ul>
+    {todos.map(todo =>
+      <Item
+        key={todo.id}
+        {...todo}
+        onComplete={() => onTodoComplete(todo.id)}
+        onDelete={() => onTodoDelete(todo.id)}
+      />
+    )}
+  </ul>
+)
+
+export default TodoList

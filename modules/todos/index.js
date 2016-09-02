@@ -6,19 +6,19 @@ import List from './components/List'
 import * as actions from '../../redux/reducers/todos'
 
 class TodosContainer extends Component {
-  render() {
-    return (
-      <div>
-        <Input addTodo={this.props.actions.addTodo}/>
-        <List actions={this.props.actions} todos={this.props.todos}/>
-      </div>
-    )
-  }
+  render = () => (
+    <div>
+      <Input addTodo={this.props.addTodo}/>
+      <List
+        todos={this.props.todos}
+        onTodoComplete={this.props.completeTodo}
+        onTodoDelete={this.props.deleteTodo}
+      />
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => ({ todos: state.todos })
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
-})
+const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodosContainer)
