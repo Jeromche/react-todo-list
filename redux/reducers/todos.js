@@ -17,7 +17,7 @@ export const deleteTodo = (id) => ({
   id
 })
 
-const todo = (state = {}, action) => {
+const single = (state = {}, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -46,7 +46,7 @@ export default function reducer(state = [], action) {
       return [todo(undefined, action), ...state]
 
     case COMPLETE_TODO:
-      return state.map(t => todo(t, action))
+      return state.map(todo => single(todo, action))
 
     case DELETE_TODO:
       return state.filter(todo => todo.id !== action.id)
