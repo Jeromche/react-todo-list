@@ -15,11 +15,6 @@ const rootReducer = combineReducers({
   user:userReducer
 })
 
-const initialState = {
-  todos: [],
-  user: {}
-};
-
-export default function configureStore(initialState = initialState) {
-  return finalCreateStore(rootReducer, initialState)
+export default function configureStore() {
+  return finalCreateStore(rootReducer)
 }

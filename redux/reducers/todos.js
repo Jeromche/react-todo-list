@@ -2,26 +2,20 @@ const ADD_TODO = 'todo/todo/ADD_TODO'
 const COMPLETE_TODO = 'todo/todo/COMPLETE_TODO'
 const DELETE_TODO = 'todo/todo/DELETE_TODO'
 
-export function addTodo(text) {
-  return {
-    type: ADD_TODO,
-    text: text
-  }
-}
+export const addTodo = (text) => ({
+  type: ADD_TODO,
+  text: text
+})
 
-export function completeTodo(id) {
-  return {
-    type: COMPLETE_TODO,
-    id: id
-  }
-}
+export const completeTodo = (id) => ({
+  type: COMPLETE_TODO,
+  id: id
+})
 
-export function deleteTodo(id) {
-  return {
-    type: DELETE_TODO,
-    id: id
-  }
-}
+export const deleteTodo = (id) => ({
+  type: DELETE_TODO,
+  id: id
+})
 
 export default function reducer(todos = [], action) {
   switch (action.type) {

@@ -1,25 +1,19 @@
 const CREATE_USER_ID = 'todo/user/CREATE_USER_ID'
 
-export function createNewUserId() {
-  return {
-    type: CREATE_USER_ID,
-    id: Math.round(Math.random() * 100)
-  }
-}
+export const createNewUserId = () => ({
+  type: CREATE_USER_ID,
+  id: Math.round(Math.random() * 100)
+})
 
-export function createNewUserIdIfOdd() {
+export const createNewUserIdIfOdd = () => {
   return (dispatch, getState) => {
     const { user } = getState()
-
-    if (user.id % 2 === 0) {
-      return
-    }
-
+    if (user.id % 2 === 0) return
     dispatch(createNewUserId())
   }
 }
 
-export function createNewUserIdAsync() {
+export const createNewUserIdAsync = () => {
   return (dispatch) => {
     setTimeout(() => {
       dispatch(createNewUserId())
@@ -27,9 +21,7 @@ export function createNewUserIdAsync() {
   }
 }
 
-const initialState = {}
-
-export default function reducer(user = initialState, action) {
+export default function reducer(user = {}, action) {
   switch (action.type) {
     case CREATE_USER_ID:
       return {
