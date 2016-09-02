@@ -1,19 +1,24 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
-import todosModule from './reducers/todos'
-import userModule from './reducers/user'
+import todosReducer from './reducers/todos'
+import userReducer from './reducers/user'
 
+// @todo Use the new syntax.
 let finalCreateStore = compose(
-  applyMiddleware(thunk, logger())
+  applyMiddleware(thunk, logger()),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
 const rootReducer = combineReducers({
-  todos: todosModule,
-  user: userModule
+  todos: todosReducer,
+  user:userReducer
 })
 
-const initialState = { todos: [], user: {} };
+const initialState = {
+  todos: [],
+  user: {}
+};
 
 export default function configureStore(initialState = initialState) {
   return finalCreateStore(rootReducer, initialState)
