@@ -21,17 +21,15 @@ export default class Input extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            type="text"
-            placeholder="Type in your todo"
-            value={this.state.inputText}
-            onChange={this.handleChange.bind(this)}
-          />
-          <input type="submit" text="Submit"/>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit.bind(this)}>
+        <input
+          type="text"
+          placeholder="Type in your todo"
+          value={this.state.inputText}
+          onChange={this.handleChange.bind(this)}
+        />
+        <input type="submit" text="Submit"/>
+      </form>
     )
   }
 }
