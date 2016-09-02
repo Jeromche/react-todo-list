@@ -29,8 +29,10 @@ export default function reducer(todos = [], action) {
 
     case COMPLETE_TODO:
       return todos.map((todo) => {
-        return todo.id !== action.id ? todo :
-          Object.assign({}, todo, { completed: !todo.completed })
+        return todo.id !== action.id ? todo : {
+          ...todo,
+          completed: !todo.completed
+        }
       })
 
     case DELETE_TODO:
