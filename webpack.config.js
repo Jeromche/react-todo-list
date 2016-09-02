@@ -30,7 +30,8 @@ module.exports = {
             'react-hmre'
           ],
           plugins: [
-            'transform-object-rest-spread'
+            'transform-object-rest-spread',
+            'transform-class-properties'
           ]
         }
       }
