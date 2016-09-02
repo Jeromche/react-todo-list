@@ -16,19 +16,12 @@ class TodosContainer extends Component {
   }
 }
 
-/**
- * @todo Only pass on the todos.
- */
 function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  }
+  return { todos: state.todos }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
+  return { actions: bindActionCreators(actions, dispatch) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodosContainer)

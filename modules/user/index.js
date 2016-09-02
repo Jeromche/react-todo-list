@@ -6,22 +6,16 @@ import * as actions from '../../redux/reducers/user'
 
 class UserContainer extends Component {
   render() {
-    return (
-      <Info actions={this.props.actions} user={this.props.user}/>
-    )
+    return <Info actions={this.props.actions} user={this.props.user}/>
   }
 }
 
 function mapStateToProps(state) {
-  return {
-    user: state.user
-  }
+  return { user: state.user }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
+  return { actions: bindActionCreators(actions, dispatch) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)
